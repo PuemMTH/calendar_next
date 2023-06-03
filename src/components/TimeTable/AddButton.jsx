@@ -30,6 +30,9 @@ const Modal = ({ isOpen, children }) => {
 const App = ({ data, setData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenShare, setIsOpenShare] = useState(false);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
   const [addData, setAddData] = useState({
     section_id: uuidv4(),
     subject_code: "",
@@ -114,11 +117,6 @@ const App = ({ data, setData }) => {
     e.preventDefault();
     if (templateName.length > 3) {
       Notiflix.Loading.circle('Saving template...');
-
-      setTimeout(() => {
-        
-      }, 3000);
-      // axios post /api/course/ to save data
       await axios.post("/api/course/", {...data,templateName }, {
         headers: {
           "Content-Type": "application/json",
@@ -134,9 +132,6 @@ const App = ({ data, setData }) => {
 
         Notiflix.Loading.remove();
         // setIsOpenShare(false);
-
-
-
       }).catch((err) => {
         console.log(err);
         toast.error("Template name already exists");
@@ -269,7 +264,6 @@ const App = ({ data, setData }) => {
                     <option value='tutorial'>Tutorial</option>
                   </select>
                 </div>
-
                 <div className='relative z-0 w-full group'>
                   <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
                     Section Code
@@ -285,7 +279,6 @@ const App = ({ data, setData }) => {
                 </div>
               </div>
             </div>
-
             <div>
               <div className='grid md:grid-cols-2 md:gap-6'>
                 <div className='relative z-0 w-full group'>
@@ -366,6 +359,45 @@ const App = ({ data, setData }) => {
                 </div>
               </div>
             </div>
+            <div>
+              <div className='grid md:grid-cols-2 md:gap-6'>
+                <div className='relative z-0 w-full group'>
+                  <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                    Day
+                  </label>
+                  <select
+                    name='day_w'
+                    onChange={handleChange}
+                    className='bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white'
+                    selected={addData.day_w}
+                    required
+                  >
+                    <option value='MON'>Monday</option>
+                    <option value='TUE'>Tuesday</option>
+                    <option value='WED'>Wednesday</option>
+                    <option value='THU'>Thursday</option>
+                    <option value='FRI'>Friday</option>
+                    <option value='SAT'>Saturday</option>
+                    <option value='SUN'>Sunday</option>
+                  </select>
+                </div>
+                <div className='relative z-0 w-full group'>
+                  <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                    Location
+                  </label>
+                  <input
+                    type='text'
+                    name='room_name_th'
+                    onChange={handleChange}
+                    value={addData.room_name_th}
+                    className='bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white'
+                    placeholder='Location'
+                    required
+                  />
+                </div>
+                </div>
+            </div>
+
           </div>
         </div>
         <div className='mt-5 sm:mt-6'>
@@ -390,7 +422,6 @@ const App = ({ data, setData }) => {
           </div>
         </div>
       </Modal>
-
 
       <Modal
         isOpen={isCopyOpen}
