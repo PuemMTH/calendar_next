@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     }
     for (const courseObj of courses) {
         data.course.push({
+            templateName: courseObj.templateName,
             section_id: courseObj.section_id,
             subject_code: courseObj.subject_code,
             subject_name_th: courseObj.subject_name_th,
