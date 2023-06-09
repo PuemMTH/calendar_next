@@ -52,6 +52,12 @@ const App = ({data, setData}) => {
             </div>
           </div>
           <div className='flex justify-end mt-2'>
+
+          <span className="py-2 px-4  text-white">
+            <span className='text-red-500'>*</span> 
+            {data.course[0] ? data.course[0]['templateName'] === 'default' ? ' ไม่ได้เลือกเทมเพลต' : `${data.course[0]['templateName']}` : ' ไม่ได้เลือกเทมเพลต'}
+          </span>
+          
           <button
             onClick={handleSaveAsImage}
             className='py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none'
