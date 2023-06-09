@@ -200,4 +200,9 @@ body {
 .my-col-end-27 {
 	@apply col-end-27;
 }
-
+.my-col-end-28 {
+	@apply col-end-28;
+}
+.my-col-end-29 {
+	@apply col-end-29;
+}

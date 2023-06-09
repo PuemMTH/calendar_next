@@ -40,7 +40,7 @@ const DayRow = ({ date, selectCourse, courses }) => {
     return color[date];
   };
   return (
-    <div className='grid grid-cols-26 min-h-16 md:min-h-24 border dark:border-gray-700'>
+    <div className='grid grid-cols-28 min-h-16 md:min-h-24 border dark:border-gray-700'>
       <div
         className={`p-1 md:p-3 col-span-2 border-r-2 dark:border-gray-700 ${getColorByDate(
           date

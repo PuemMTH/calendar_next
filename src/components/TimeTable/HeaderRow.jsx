@@ -1,5 +1,5 @@
 const HeaderRow = ({ headers }) => (
-    <div className='grid grid-cols-26'>
+    <div className='grid grid-cols-28'>
       {headers.map((header, headerIndex) => (
         <div
           key={`header-${headerIndex}`}
