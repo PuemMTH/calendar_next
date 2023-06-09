@@ -18,7 +18,17 @@ const DayRow = ({ date, selectCourse, courses }) => {
       endCol: timeToCol(course.time_to),
       ...course,
     };
-    if (dayKey in acc) acc[dayKey].push(mappedCourse); else acc[dayKey] = [mappedCourse];
+    if (dayKey in acc) {
+      // sord mappedCourse by startCol before insert because it's new row
+      const index = acc[dayKey].findIndex(
+        (course) => course.startCol > mappedCourse.startCol
+      );
+      if (index === -1) {
+        acc[dayKey].push(mappedCourse);
+      } else {
+        acc[dayKey].splice(index, 0, mappedCourse);
+      }
+    }else acc[dayKey] = [mappedCourse];
     return acc;
   }, {});
 

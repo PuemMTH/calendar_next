@@ -30,9 +30,6 @@ const Modal = ({ isOpen, children }) => {
 const App = ({ data, setData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenShare, setIsOpenShare] = useState(false);
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
   const [addData, setAddData] = useState({
     section_id: uuidv4(),
     subject_code: "",
@@ -129,9 +126,7 @@ const App = ({ data, setData }) => {
         toast.success("Template saved");
         setIsCopyOpen(true)
         setOpenLink(`http://${window.location.hostname}/template/${res.data[0].group_id}`);
-
         Notiflix.Loading.remove();
-        // setIsOpenShare(false);
       }).catch((err) => {
         console.log(err);
         toast.error("Template name already exists");
