@@ -29,13 +29,13 @@ const DayRow = ({ date, selectCourse, courses }) => {
 
   const getColorByDate = (date) => {
     const color = {
-      MON: "bg-blue-400",
-      TUE: "bg-green-400",
-      WED: "bg-yellow-400",
-      THU: "bg-red-400",
-      FRI: "bg-purple-400",
-      SAT: "bg-pink-400",
-      SUN: "bg-gray-400",
+      MON: "bg-yellow-400",
+      TUE: "bg-pink-400",
+      WED: "bg-green-400",
+      THU: "bg-orange-400",
+      FRI: "bg-blue-400",
+      SAT: "bg-purple-400",
+      SUN: "bg-red-400",
     };
     return color[date];
   };

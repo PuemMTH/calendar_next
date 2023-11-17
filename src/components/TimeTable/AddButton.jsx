@@ -45,30 +45,6 @@ const App = ({ data, setData }) => {
   useEffect(() => {
     console.log(addData);
   }, [addData]);
-
-  // search engine
-  // const [searchTerm, setSearchTerm] = useState("");
-  // useEffect(() => {
-  //   if (searchTerm !== "") {
-  //     const selectedSubject = dataSearch.find(
-  //       (value) => value.subject_name.toLowerCase() === searchTerm.toLowerCase()
-  //     );
-  //     if (selectedSubject) {
-  //       setAddData({
-  //         ...addData,
-  //         subject_name_th: selectedSubject.subject_name,
-  //       });
-  //       setAddData({ ...addData, subject_code: selectedSubject.sub_id });
-  //     }
-  //   }
-  // }, [searchTerm]);
-
-  // const handleChangeSearch = (event) => {
-  //   setAddData({ ...addData, subject_name_th: event.target.value });
-  //   setSearchTerm(event.target.value);
-  // };
-  // end search engine
-
   const handleChange = (e) => {
     if (e.target.name === "section_type_th") {
       if (e.target.value === "lecture") {
